@@ -1,0 +1,111 @@
+<section id="about">
+  <% if (config.description) { %>
+  <%- markdown(config.description) %>
+  <% } %>
+  <p style="display: inline">
+    <% if (theme.customize.social_links) { %>
+    Find me on
+  <ul id="sociallinks">
+    <% for(var i in theme.customize.social_links) { %>
+    <li><a class="icon" target="_blank" href="<%- url_for(theme.customize.social_links[i]) %>" title="<%= i %>"><i class="fa fa-<%= i %>"></i></a></li>
+    <% } %>
+  </ul>.
+  <% } %>
+  </p>
+</section>
+<section>
+  <article>
+    <h1>個人簡介和申請動機</h1>
+    <p>你好，我是 Wanyu，工作是 UI Designer，我喜歡畫插圖跟做網頁。<br />我的動機是想要提升給客戶的服務品質，可以更自由地做出我期望的使用體驗。</p>
+  </article>
+  <article>
+    <h1>曾經做過哪些軟體工程技術相關的學習？</h1>
+    <ul>
+      <li>
+        問後端同事怎麼用 git，講解了幾次聽不懂後被罵 😂，後來約跟我一樣還不會 git 的同事一起練習，現在會基本的了。我還曾經教不會git的工程師怎麼入門。
+      </li>
+      <li>為了接案子先跟客戶說我會接金流，然後熬夜找資料。目前架了 WordPress，learn by doing ^q^</li>
+    </ul>
+  </article>
+  <article>
+    <h1>如果參與這個訓練，會怎麼安排學習時間？</h1>
+    <p>我是全職接案者，預計每天 3~4 小時學習。</p>
+  </article>
+  <article>
+    <h1>軟體技術日新月異，如何確定投入的領域是正確有回報的？</h1>
+    <p>我覺得軟體技術符合：「越基本的東西，越難過時」的原則。我覺得最理想的是確定自己有學到「運作的原則是什麼」，例如，我學 CSS 的心得是，理解 postition 的概念是最基本卻也最實用的，細部的樣式設定不用背起來，可以查文件。</p>
+  </article>
+  <article>
+    <h1>請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</h1>
+    <p>😱 很可怕，確定要問嗎？</p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      確定
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>這題好難！我想很久！</p>
+            <p>有一次我逛到一位設計師的作品網站，我覺得對方做得真的太棒了，反觀我自己的作品太爛了，爛到覺得自己不配出生。在家裡感到焦慮破表，我就出去附近的小公園繞繞，但我還是控制不住那股要失去重力的感覺，甚至開始感覺到無法呼吸想吐。</p>
+            <p>結局是我回家睡覺。</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">好喔</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article>
+    <h1>關於這份申請網頁，分享一個開發時的技術心得</h1>
+    <p>我選擇相對熟悉的hexo，因為我的個人網站就是用hexo架設。<br />又，剛好前兩週出了新版，我想利用這機會，來試試最新版的。果然在設定node跟npm時翻車了！<br />一開始看到錯誤訊息，覺得痛苦指數好高，處理開發環境總是感覺很可怕，我曾經差點把電腦變成磚塊。<br />一開始先把錯誤訊息貼給chatGPT跟Claude，確定了他們都在亂教之後，先讓自己呼吸冷靜一下，確定了這個情況我要靠自己了，AI這次幫不上忙。<br />我再次確認 hexo v8 要求的環境，然後再查詢 nvm 的版本設定方式，結果就順利安裝完成了。</p>
+  </article>
+  <article>
+    <h1>如何看待人工智慧的發展對軟體工程師的影響？</h1>
+    <p>是一個很有趣的新工具，負面跟正面影響都會很大，大家抓穩了！</p>
+  </article>
+  <article>
+    <h1>從上次提出申請至今，多做了哪些努力？</h1>
+    <p>我第一次申請。之前不知道有這個魔鬼訓練營。</p>
+  </article>
+  <article>
+    <h1>其他想要對我們說的事情？</h1>
+    <p>WeHelp 這個名字有點點像身心靈互助團體。</p>
+  </article>
+</section>
+<section id="writing">
+  <span class="h1"><a href="<%- url_for("archives") %>">Writing</a></span>
+  <ul class="post-list">
+    <% if (theme.customize.show_all_posts) { %>
+    <% var show_posts = page.posts.sort('date', 'desc') %>
+    <% } else { %>
+    <% var show_posts = site.posts.sort('date', 'desc').limit(theme.customize.post_count || 5) %>
+    <% } %>
+    <% show_posts.each(function(post, i){ %>
+    <li class="post-item">
+      <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+      <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+    </li>
+    <% }); %>
+  </ul>
+  <% if (theme.customize.show_all_posts) { %>
+  <%- partial('_partial/pagination') %>
+  <% } %>
+</section>
+
+<% if (site.data.projects) { %>
+<section id="projects">
+  <span class="h1"><a href="<%- url_for(theme.projects_url) %>">Projects</a></span>
+  <ul class="project-list">
+    <% for(var obj in site.data.projects){ %>
+    <li class="project-item">
+      <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%= site.data.projects[obj].desc %>
+    </li>
+    <% } %>
+  </ul>
+</section>
+<% } %>
