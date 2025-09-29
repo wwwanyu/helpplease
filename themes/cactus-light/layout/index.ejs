@@ -68,20 +68,19 @@
     <p>WeHelp 這個名字有點點像身心靈互助團體。</p>
   </article>
 </section>
-<section id="about">
+
+<section id="about" class="my-5 bg-light p-4 rounded fs-4">
   <% if (config.description) { %>
   <%- markdown(config.description) %>
   <% } %>
-  <p style="display: inline">
-    <% if (theme.customize.social_links) { %>
-    Find me on
+  <% if (theme.customize.social_links) { %>
+  Find me on
   <ul id="sociallinks">
     <% for(var i in theme.customize.social_links) { %>
     <li><a class="icon" target="_blank" href="<%- url_for(theme.customize.social_links[i]) %>" title="<%= i %>"><i class="fa fa-<%= i %>"></i></a></li>
     <% } %>
   </ul>.
   <% } %>
-  </p>
 </section>
 
 <% if (site.data.projects) { %>

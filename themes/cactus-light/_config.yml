@@ -27,7 +27,11 @@ customize:
         gravator: false
     social_links:
         github: http://github.com/wwwanyu
-        twitter: /
+        twitter: https://twitter.com/wwwanyuchang
+        instagram: https://www.instagram.com/wwwanyu.doodle/
+        youtube: https://www.youtube.com/@wanyuchang
+        suitcase: https://barkingbutton.com
+        globe: http://wwwanyu.com
     show_all_posts: false
     post_count: 5
     highlight: monokai
