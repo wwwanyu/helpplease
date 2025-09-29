@@ -11,9 +11,10 @@ customize:
         email:
     logo:
         enabled: true
-        width: 50
-        height: 50
+        width: 100
+        height: 100
         url: /images/logo.png
+        hover: /images/logo-hover.png
         gravatar: false
     favicon:
       # eg. generate with http://realfavicongenerator.net/
